@@ -1,5 +1,8 @@
 import './App.css';
-import Create from './components/create';
+import Create from "./components/create";
+import Read from "./components/read";
+import Update from "./components/update";
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -17,8 +20,18 @@ function App() {
     {
       path: "Create",
       element: <Create />
-    }
+    },
 
+    {
+      path: "/read",
+      element: <Read />
+    },
+    
+    {
+      path: "/update",
+      element: <Update />
+    }
+    
   ])
 
   return (
