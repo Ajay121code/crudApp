@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import { FormField, Button, Checkbox, Form } from 'semantic-ui-react'
-import axios from 'axios';
+import React, { useState } from "react";
+import { FormField, Button, Checkbox, Form } from "semantic-ui-react";
+import axios from "axios";
 
 function Create() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [mobile, setmobile] = useState("");
-  const [checkbox, setCheckbox] = useState(false);
+  const [mobile, setMobile] = useState("");
+  const [checkbox, setCheckbox] = useState("True");
+
   const postData = () => {
-    axios.post("https://65fbeeef14650eb2100b0c54.mockapi.io/CrudData", {
+    axios.post(`https://661796dced6b8fa434831da6.mockapi.io/cD`, {
       firstName,
       lastName,
       email,
@@ -29,6 +30,7 @@ function Create() {
             onChange={(e) => setFirstName(e.target.value)}
           />
         </FormField>
+
         <FormField>
           <label>Last Name</label>
           <input
@@ -37,6 +39,7 @@ function Create() {
             onChange={(e) => setLastName(e.target.value)}
           />
         </FormField>
+
         <FormField>
           <label>Email</label>
           <input
@@ -45,22 +48,27 @@ function Create() {
             onChange={(e) => setEmail(e.target.value)}
           />
         </FormField>
+
         <FormField>
           <label>Mobile</label>
           <input
-            placeholder="Mobile"
+            placeholder="Your Mobile"
             value={mobile}
-            onChange={(e) => setmobile(e.target.value)}
+            onChange={(e) => setMobile(e.target.value)}
           />
         </FormField>
+
         <FormField>
           <Checkbox
             label="Agree to the Terms and Conditions"
             checked={checkbox}
-            onChange={(e) => setCheckbox(e.target.checked)}
+            onChange={(e) => setCheckbox(e.target.value)}
           />
         </FormField>
-        <Button type="submit" onClick={postData}>Submit</Button>
+
+        <Button type="submit" onClick={postData}>
+          Submit
+        </Button>
       </Form>
     </div>
   );
