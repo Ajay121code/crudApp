@@ -27,6 +27,7 @@
 
 table.ui.table {
   width: fit-content;
+  min-width: 60vw;
   background: #fff;
   margin: 1em 0;
   border: 1px solid rgba(34, 36, 38, .15);
@@ -37,3 +38,4 @@ table.ui.table {
   border-collapse: separate;
   border-spacing: 0;
 }
+
