@@ -2,7 +2,7 @@
 
 .main{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   height: 100vh;
   background-color: #212121;
@@ -23,4 +23,17 @@
 
 .create-form {
   width: 300px;
+}
+
+table.ui.table {
+  width: fit-content;
+  background: #fff;
+  margin: 1em 0;
+  border: 1px solid rgba(34, 36, 38, .15);
+  box-shadow: none;
+  border-radius: .28571429rem;
+  text-align: left;
+  color: rgba(0, 0, 0, .87);
+  border-collapse: separate;
+  border-spacing: 0;
 }

@@ -1,7 +1,18 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-import { Table } from "semantic-ui-react";
+import { Table, Button } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+
+const setData = (data) => {
+  let { id, firstName, lastName, email, mobile, checkbox } = data;
+  localStorage.setItem('ID', id);
+  localStorage.setItem('First Name', firstName);
+  localStorage.setItem('Last Name', lastName);
+  localStorage.setItem('Email', email);
+  localStorage.setItem('Mobile', mobile);
+  localStorage.setItem('Checkbox Value', checkbox)
+}
 
 const Read = () => {
   const [APIdata, setAPIData] = useState([]);
@@ -22,6 +33,7 @@ const Read = () => {
         <Table.HeaderCell>Email</Table.HeaderCell>
         <Table.HeaderCell>Mobile</Table.HeaderCell>
         <Table.HeaderCell>Checkbox</Table.HeaderCell>
+        <Table.HeaderCell>Update</Table.HeaderCell>
       </Table.Row>
 
       <Table.Body>
@@ -32,7 +44,12 @@ const Read = () => {
               <Table.Cell>{data.lastName}</Table.Cell>
               <Table.Cell>{data.email}</Table.Cell>
               <Table.Cell>{data.mobile}</Table.Cell>
-              <Table.Cell>{data.checkbox ? `Checked` : `Unchecked`}</Table.Cell>
+              <Table.Cell>{data.checkbox ? `Yes` : `No`}</Table.Cell>
+              <Table.Cell>
+                <Link to="/update" target="_blank">
+                  <Button onClick={() => setData(data)}>Update</Button>
+                </Link>
+              </Table.Cell>
             </Table.Row>
           );
         })}

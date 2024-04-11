@@ -7,7 +7,7 @@ function Create() {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
-  const [checkbox, setCheckbox] = useState("True");
+  const [checkbox, setCheckbox] = useState(true);
 
   const postData = () => {
     axios.post(`https://661796dced6b8fa434831da6.mockapi.io/cD`, {
