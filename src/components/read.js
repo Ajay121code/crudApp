@@ -62,7 +62,7 @@ const Read = () => {
                 <Table.Cell>{data.mobile}</Table.Cell>
                 <Table.Cell>{data.checkbox ? `Yes` : `No`}</Table.Cell>
                 <Table.Cell>
-                  <Link to="/update" target="_blank">
+                  <Link to="/update">
                     <Button onClick={() => setData(data)}>Update</Button>
                   </Link>
                 </Table.Cell>
