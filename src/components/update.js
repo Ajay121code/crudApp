@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FormField, Button, Checkbox, Form } from "semantic-ui-react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Update() {
   const updateAPIData = () => {
@@ -10,7 +11,9 @@ function Update() {
       email: email,
       mobile: mobile,
       checkbox: checkbox,
-    });
+    }).then(() => {
+      navigate("/read");
+    })
   };
   const [id, setID] = useState(null);
   const [firstName, setFirstName] = useState("");
@@ -18,6 +21,8 @@ function Update() {
   const [email, setEmail] = useState("");
   const [mobile, setMobile] = useState("");
   const [checkbox, setCheckbox] = useState(true);
+
+  let navigate = useNavigate();
 
   useEffect(() => {
     setID(localStorage.getItem("ID"));

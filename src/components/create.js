@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FormField, Button, Checkbox, Form } from "semantic-ui-react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Create() {
   const [firstName, setFirstName] = useState("");
@@ -9,14 +10,20 @@ function Create() {
   const [mobile, setMobile] = useState("");
   const [checkbox, setCheckbox] = useState(true);
 
+  let navigate = useNavigate();
+
   const postData = () => {
-    axios.post(`https://661796dced6b8fa434831da6.mockapi.io/cD`, {
-      firstName,
-      lastName,
-      email,
-      mobile,
-      checkbox,
-    });
+    axios
+      .post(`https://661796dced6b8fa434831da6.mockapi.io/cD`, {
+        firstName,
+        lastName,
+        email,
+        mobile,
+        checkbox,
+      })
+      .then(() => {
+        navigate("/read");
+      });
   };
 
   return (
