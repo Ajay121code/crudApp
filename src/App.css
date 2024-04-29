@@ -9,6 +9,7 @@
   color: whitesmoke;
   flex-direction: column;
   border: 1px solid whitesmoke;
+  overflow-x: auto;
 }
 
 .main_header{
@@ -25,13 +26,19 @@
   width: 300px;
 }
 
-table.ui.table {
-  width: fit-content;
-  min-width: 60vw;
+.table-wrapper {
+  overflow-x: auto; /* Add horizontal scroll */
+  max-width: 100%; /* Ensure the table doesn't exceed its container */
+}
+
+.table-wrapper table {
+  min-width: 800px; 
+  white-space: nowrap; 
+  width: 100%;
   background: #fff;
   margin: 1em 0;
-  border: 1px solid rgba(34, 36, 38, .15);
-  box-shadow: none;
+  border: 1px solid rgba(14, 233, 112, 0.15);
+  filter: drop-shadow(0 0 0 transparent);
   border-radius: .28571429rem;
   text-align: left;
   color: rgba(0, 0, 0, .87);
@@ -39,3 +46,9 @@ table.ui.table {
   border-spacing: 0;
 }
 
+.table-wrapper th,
+.table-wrapper td {
+  padding: 8px; /* Adjust cell padding */
+  border-bottom: 1px solid #212121;
+  margin: 2px;
+}

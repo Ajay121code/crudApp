@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Table, Button } from "semantic-ui-react";
+import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import "../App.css";
 
 const setData = (data) => {
   let { id, firstName, lastName, email, mobile, checkbox } = data;
@@ -41,44 +42,44 @@ const Read = () => {
   };
 
   return (
-    <>
-      <Table singleLine>
-        <Table.Row>
-          <Table.HeaderCell>First Name</Table.HeaderCell>
-          <Table.HeaderCell>Last Name</Table.HeaderCell>
-          <Table.HeaderCell>Email</Table.HeaderCell>
-          <Table.HeaderCell>Mobile</Table.HeaderCell>
-          <Table.HeaderCell>Checkbox</Table.HeaderCell>
-          <Table.HeaderCell>Update</Table.HeaderCell>
-        </Table.Row>
-
-        <Table.Body>
-          {APIdata.map((data) => {
-            return (
-              <Table.Row key={data.id}>
-                <Table.Cell>{data.firstName}</Table.Cell>
-                <Table.Cell>{data.lastName}</Table.Cell>
-                <Table.Cell>{data.email}</Table.Cell>
-                <Table.Cell>{data.mobile}</Table.Cell>
-                <Table.Cell>{data.checkbox ? `Yes` : `No`}</Table.Cell>
-                <Table.Cell>
-                  <Link to="/update">
-                    <Button onClick={() => setData(data)}>Update</Button>
-                  </Link>
-                </Table.Cell>
-                <Table.Cell>
-                  <Button onClick={() => onDelete(data.id)}>Delete</Button>
-                </Table.Cell>
-              </Table.Row>
-            );
-          })}
-        </Table.Body>
-      </Table>
+    <div className="table-wrapper">
+      <table className="table table-striped">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>Checkbox</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          {APIdata.map((data) => (
+            <tr key={data.id}>
+              <td>{data.firstName}</td>
+              <td>{data.lastName}</td>
+              <td>{data.email}</td>
+              <td>{data.mobile}</td>
+              <td>{data.checkbox ? "Yes" : "No"}</td>
+              <td>
+                <Link to="/update">
+                  <Button onClick={() => setData(data)}>Update</Button>
+                </Link>
+              </td>
+              <td>
+                <Button onClick={() => onDelete(data.id)}>Delete</Button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
 
       <Link to="/create">
         <Button>Create New</Button>
       </Link>
-    </>
+    </div>
   );
 };
 
